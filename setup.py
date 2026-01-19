@@ -30,7 +30,6 @@ setup(
             "witcher=witcher:main",
         ],
     },
-    scripts=["witcher"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
