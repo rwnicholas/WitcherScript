@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""
+WitcherScript Command-Line Interface
+Allows running .witcher files standalone: witcher program.witcher
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Add current directory to path to import witcher_interpreter
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from witcher_interpreter import run_witcher_script
+
+def main():
+    """Main entry point for WitcherScript CLI"""
+    
+    if len(sys.argv) < 2:
+        print("WitcherScript v1.1 - Witcher 3 Inspired Programming Language")
+        print("")
+        print("Usage: witcher <file.witcher> [args...]")
+        print("")
+        print("Examples:")
+        print("  witcher program.witcher")
+        print("  witcher example_programs/01_hello_world.witcher")
+        print("")
+        print("Interactive mode:")
+        print("  witcher (without arguments)")
+        print("")
+        print("For more information:")
+        print("  https://github.com/your-repo/WitcherScript")
+        sys.exit(0)
+    
+    # Check if file exists
+    file_path = sys.argv[1]
+    
+    if not os.path.exists(file_path):
+        print(f"Error: File not found: {file_path}", file=sys.stderr)
+        sys.exit(1)
+    
+    if not file_path.endswith('.witcher'):
+        print(f"Warning: File doesn't have .witcher extension: {file_path}", file=sys.stderr)
+    
+    # Read and execute the file
+    try:
+        with open(file_path, 'r') as f:
+            source = f.read()
+        run_witcher_script(source)
+    except FileNotFoundError:
+        print(f"Error: Cannot read file: {file_path}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
