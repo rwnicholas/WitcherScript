@@ -18,11 +18,11 @@ setup(
     description="A programming language inspired by The Witcher 3: Wild Hunt",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/WitcherScript",
+    url="https://github.com/rwnicholas/WitcherScript",
     project_urls={
-        "Bug Tracker": "https://github.com/yourusername/WitcherScript/issues",
-        "Documentation": "https://github.com/yourusername/WitcherScript/blob/main/README.md",
-        "Source Code": "https://github.com/yourusername/WitcherScript",
+        "Bug Tracker": "https://github.com/rwnicholas/WitcherScript/issues",
+        "Documentation": "https://github.com/rwnicholas/WitcherScript/blob/main/README.md",
+        "Source Code": "https://github.com/rwnicholas/WitcherScript",
     },
     py_modules=["witcher_interpreter"],
     entry_points={
