@@ -13,7 +13,7 @@ long_description = readme_file.read_text(encoding="utf-8") if readme_file.exists
 
 setup(
     name="witcherscript",
-    version="1.1.1",
+    use_scm_version=True,
     author="WitcherScript Contributors",
     description="A programming language inspired by The Witcher 3: Wild Hunt",
     long_description=long_description,
@@ -53,4 +53,5 @@ setup(
     python_requires=">=3.6",
     keywords="programming language witcher interpreter game inspired",
     zip_safe=False,
+    setup_requires=["setuptools_scm"],
 )
