@@ -24,10 +24,11 @@ setup(
         "Documentation": "https://github.com/rwnicholas/WitcherScript/blob/main/README.md",
         "Source Code": "https://github.com/rwnicholas/WitcherScript",
     },
-    py_modules=["witcher_interpreter"],
+    py_modules=["witcher", "witcher_interpreter"],
     entry_points={
         "console_scripts": [
             "witcher=witcher:main",
+            "witcher_interpreter=witcher:main",
         ],
     },
     classifiers=[
