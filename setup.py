@@ -13,7 +13,7 @@ long_description = readme_file.read_text(encoding="utf-8") if readme_file.exists
 
 setup(
     name="witcherscript",
-    version="1.1.0",
+    version="1.1.1",
     author="WitcherScript Contributors",
     description="A programming language inspired by The Witcher 3: Wild Hunt",
     long_description=long_description,
