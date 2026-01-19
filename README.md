@@ -1,262 +1,166 @@
-# WitcherScript - A Witcher 3-Inspired Programming Language
+# WitcherScript
 
-Welcome to **WitcherScript**, a programming language inspired by The Witcher 3: Wild Hunt. This language brings the magic, monsters, and lore of the game into a functional programming environment.
+A programming language inspired by The Witcher 3: Wild Hunt, featuring Witcher signs as keywords and game-themed syntax.
 
-## 🧙 What is WitcherScript?
+## Features
 
-WitcherScript is a complete programming language featuring:
-- **Witcher Signs as Keywords**: Use game signs (Igni, Quen, Yrden, Aard, Axii) for control flow
-- **Monster-Themed Functions**: Functions inspired by witcher alchemy and hunting
-- **Witcher Lore Integration**: Variables, functions, and concepts based on The Witcher 3 universe
-- **Full Language Features**: Variables, functions, loops, conditionals, arrays, and more
+- **Witcher Signs as Keywords**: `igni` (if), `quen` (while), `yrden` (for), `aard` (function), `axii` (switch)
+- **Game-Themed Syntax**: `contract` (variable), `medallion` (print), `hunt` (return), `grimoire` (import)
+- **Full Language Support**: Variables, functions, loops, conditionals, arrays, operators
+- **No Dependencies**: Requires only Python 3.6+
 
-## 📋 Quick Reference
-
-### Witcher Signs (Control Flow)
-| Sign | Keyword | Purpose |
-|------|---------|---------|
-| 🔥 Igni | `igni` | If statement |
-| 🛡️ Quen | `quen` | While loop |
-| ⏱️ Yrden | `yrden` | For loop |
-| 💥 Aard | `aard` | Function definition |
-| ✨ Axii | `axii` | Switch/case (reserved) |
-
-### Basic Keywords
-- `contract` - Declare a variable (like taking a Witcher contract)
-- `mutation` - Declare a constant (permanent mutation)
-- `medallion` - Print output (Witcher medallion alerts)
-- `hunt` - Return from a function
-- `elixir` - Else branch
-- `grimoire` - Import another .witcher file (module system)
-
-## 🚀 Getting Started
-
-### Installation
-
-No dependencies required! Just Python 3.6+
+## Quick Start
 
 ```bash
-# Clone or download the project
-cd /path/to/WitcherScript
-
-# Run the interpreter
+# Interactive mode
 python3 witcher_interpreter.py
-```
 
-### Running Programs
-
-#### Interactive Mode
-```bash
-python3 witcher_interpreter.py
-witcher> medallion("Greetings, Witcher")
-```
-
-#### Run from File
-```bash
+# Run a file
 python3 witcher_interpreter.py example_programs/01_hello_world.witcher
+
+# Or install via pip
+pip install witcherscript
 ```
 
-## 📚 Examples
+## Examples
 
 ### Hello World
 ```witcher
 medallion("Hail, fellow Witcher!")
 ```
 
-### Variables & Arithmetic
+### Variables & Functions
 ```witcher
 contract gold = 100
 contract reward = 50
-contract total = gold + reward
-medallion(total)  # Output: 150
-```
+medallion(gold + reward)  # Output: 150
 
-### Functions (Casting Signs)
-```witcher
 aard cast_igni(intensity) {
     contract damage = 50 * intensity
     hunt damage
 }
-
-contract fire_damage = cast_igni(3)
-medallion(fire_damage)  # Output: 150
 ```
 
-### Loops
+### Control Flow
 ```witcher
-contract counter = 1
-quen counter <= 5 {
-    medallion(counter)
-    counter = counter + 1
+# If statement
+igni level >= 50 {
+    medallion("You are a master!")
+} elixir {
+    medallion("Train more.")
 }
-```
 
-### Arrays (Bestiary)
-```witcher
+# While loop
+contract count = 1
+quen count <= 5 {
+    medallion(count)
+    count = count + 1
+}
+
+# For loop
 contract monsters = ["Griffin", "Basilisk", "Drowner"]
-
 yrden monster -> monsters {
     medallion(monster)
 }
-
-medallion(monster_count(monsters))  # Output: 3
 ```
 
-### Conditional (IGNI Sign)
-```witcher
-contract monster_hp = 30
+## Keywords
 
-igni monster_hp <= 0 {
-    medallion("Victory!")
-} elixir {
-    medallion("Still fighting!")
-}
-```
+| Keyword | Purpose | Example |
+|---------|---------|---------|
+| `contract` | Variable | `contract x = 10` |
+| `mutation` | Constant | `mutation MAX = 99` |
+| `medallion` | Print | `medallion("text")` |
+| `igni` | If | `igni x > 0 { ... }` |
+| `quen` | While | `quen x < 10 { ... }` |
+| `yrden` | For | `yrden item -> items { ... }` |
+| `aard` | Function | `aard func(x) { ... }` |
+| `hunt` | Return | `hunt result` |
+| `elixir` | Else | `igni ... { } elixir { }` |
+| `grimoire` | Import | `grimoire "lib/module"` |
 
-## 📁 Project Structure
+## Built-in Functions
 
-```
-WitcherScript/
-├── witcher_interpreter.py          # Main interpreter (Lexer, Parser, Interpreter)
-├── WitcherLang.md                  # Quick specification
-├── LANGUAGE_REFERENCE.md           # Complete language reference
-├── GRIMOIRE_GUIDE.md               # Module/import system documentation
-├── README.md                        # This file
-├── lib/                             # Reusable library files
-│   ├── monster_helpers.witcher     # Monster utility functions
-│   └── math_utils.witcher          # Math utility functions
-└── example_programs/
-    ├── 01_hello_world.witcher      # Basic output
-    ├── 02_monster_hunt.witcher     # Variables & conditionals
-    ├── 03_casting_signs.witcher    # Functions
-    ├── 04_bestiary.witcher         # Arrays
-    ├── 05_alchemy.witcher          # Complex conditionals
-    ├── 06_quest_system.witcher     # Functions & arithmetic
-    ├── 07_combat.witcher           # Loops & logic
-    ├── 08_fibonacci.witcher        # Recursion
-    ├── 09_bubble_sort.witcher      # Sorting algorithm
-    ├── 10_grimoire_import.witcher  # Module imports
-    └── 11_multiple_grimoires.witcher # Multiple imports
-```
+- `medallion(value)` - Print output
+- `sigh(prompt)` - Read input
+- `witcher_speed(text, times)` - Repeat string
+- `monster_count(array)` - Array length
+- `add_to_bestiary(array, value)` - Append to array
+- `hunter_instinct(value)` - Get type info
+- `potion_effect(a, b)` - Combine values
 
-## 🎮 Built-in Functions
+## Data Types
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| `medallion(value)` | Print output | `medallion("Attack!")` |
-| `sigh(prompt)` | Read input | `contract name = sigh("Your name: ")` |
-| `witcher_speed(text, times)` | Repeat string | `witcher_speed("SLASH ", 3)` |
-| `monster_count(array)` | Get array length | `monster_count([1,2,3])` |
-| `add_to_bestiary(array, value)` | Append to array | `add_to_bestiary(monsters, "Leshen")` |
-| `hunter_instinct(value)` | Get type info | `hunter_instinct(42)` → `"number"` |
-| `potion_effect(a, b)` | Combine values | `potion_effect(50, 30)` → `80` |
+- **Numbers**: `42`, `3.14`
+- **Text**: `"Geralt of Rivia"`
+- **Truth/Falsehood**: `truth`, `falsehood`
+- **Bestiary**: `["item1", "item2"]`
 
-## 📖 Language Features
+## Operators
 
-### Data Types
-- **Numbers**: Integers and floats (e.g., `42`, `3.14`)
-- **Text**: Strings (e.g., `"Geralt of Rivia"`)
-- **Truth/Falsehood**: Booleans (e.g., `truth`, `falsehood`)
-- **Bestiary**: Arrays/Lists (e.g., `["item1", "item2"]`)
-
-### Operators
 - **Arithmetic**: `+`, `-`, `*`, `/`, `%`
 - **Comparison**: `==`, `!=`, `<`, `>`, `<=`, `>=`
 - **Logical**: `and`, `or`, `not`
 
-### Comments
-Use `#` for comments:
-```witcher
-# This is a comment
-medallion("test")  # End-line comment
+## Project Structure
+
+```
+WitcherScript/
+├── witcher_interpreter.py          # Main interpreter
+├── example_programs/               # Sample programs
+│   ├── 01_hello_world.witcher
+│   ├── 02_monster_hunt.witcher
+│   ├── 03_casting_signs.witcher
+│   ├── 04_bestiary.witcher
+│   ├── 05_alchemy.witcher
+│   ├── 06_quest_system.witcher
+│   ├── 07_combat.witcher
+│   ├── 08_fibonacci.witcher
+│   ├── 09_bubble_sort.witcher
+│   ├── 10_grimoire_import.witcher
+│   └── 11_multiple_grimoires.witcher
+├── lib/                             # Library modules
+│   ├── monster_helpers.witcher
+│   ├── math_utils.witcher
+│   └── quicksort.witcher
+└── vscode-witcherscript/           # VS Code extension
+    ├── syntaxes/                    # Syntax highlighting
+    ├── snippets/                    # Code snippets
+    └── package.json
 ```
 
-## 🎯 Example Programs
-
-Run example programs to see WitcherScript in action:
+## Try It
 
 ```bash
-# Hello World
-python3 witcher_interpreter.py example_programs/01_hello_world.witcher
-
-# Monster Hunt (variables & conditionals)
 python3 witcher_interpreter.py example_programs/02_monster_hunt.witcher
-
-# Casting Signs (functions)
-python3 witcher_interpreter.py example_programs/03_casting_signs.witcher
-
-# Bestiary (arrays & loops)
-python3 witcher_interpreter.py example_programs/04_bestiary.witcher
-
-# Alchemy (complex logic)
-python3 witcher_interpreter.py example_programs/05_alchemy.witcher
-
-# Quest System (function returns)
-python3 witcher_interpreter.py example_programs/06_quest_system.witcher
-
-# Combat Simulator (complex loops)
-python3 witcher_interpreter.py example_programs/07_combat.witcher
-
-# Fibonacci (recursion)
 python3 witcher_interpreter.py example_programs/08_fibonacci.witcher
+python3 witcher_interpreter.py example_programs/09_bubble_sort.witcher
 ```
 
-## 🛠️ Architecture
+## VS Code Extension
 
-### Components
+Install the WitcherScript extension for syntax highlighting and snippets:
 
-1. **Lexer** (`Lexer` class)
-   - Tokenizes source code
-   - Recognizes keywords, identifiers, operators, literals
-   - Handles comments and strings
-
-2. **Parser** (`Parser` class)
-   - Builds Abstract Syntax Tree (AST)
-   - Implements recursive descent parsing
-   - Handles operator precedence
-
-3. **Interpreter** (`Interpreter` class)
-   - Executes the AST
-   - Manages variable scopes (global and local)
-   - Implements built-in functions
-   - Handles function calls and returns
-
-## 🐛 Error Handling
-
-The interpreter provides helpful error messages:
-
-```witcher
-contract x = undefined_var  # Error: Undefined variable: undefined_var
-contract y = 10 / 0         # Error: Division by zero!
+```bash
+cd vscode-witcherscript
+npm install
+vsce package
 ```
 
-## 🎓 Learn More
+Then install the `.vsix` file in VS Code.
 
-- See [LANGUAGE_REFERENCE.md](LANGUAGE_REFERENCE.md) for complete language documentation
-- Check [example_programs/](example_programs/) for code samples
-- Read [WitcherLang.md](WitcherLang.md) for quick specification
+## License
 
-## 🎬 Game References
+MIT License - See [LICENSE](LICENSE)
 
-The language is inspired by The Witcher 3: Wild Hunt featuring:
-- **Geralt of Rivia**: Main protagonist
-- **Witcher Signs**: Igni, Quen, Yrden, Aard, Axii - magical abilities
-- **Alchemy**: Potions and mixtures (Swallow, Tawny Owl, etc.)
-- **Bestiary**: Collection of monsters encountered
-- **Contracts**: Witcher jobs/quests
+## Inspired By
 
-## 📝 License
+The Witcher 3: Wild Hunt - CD Projekt Red
 
-This is a creative fan project inspired by CD Projekt Red's The Witcher 3: Wild Hunt.
+---
 
-## 🎉 Have Fun!
-
-Start your witcher journey and write code with WitcherScript!
+**Start your witcher journey!** 🧙‍♂️
 
 ```witcher
 medallion("May your blade be sharp and your wits sharper!")
 ```
-
----
-
-**Questions?** Check the examples or read the full language reference!
